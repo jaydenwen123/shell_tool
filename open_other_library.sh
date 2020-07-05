@@ -1,4 +1,22 @@
 #!/bin/bash
+
+# open the setting project
+function openProject(){
+	projectFullName=$1
+	if [ ${projectFullName:0:4} == "http"  ];then
+		echo "[INFO] open the project url:"${projectFullName}
+		open ${projectFullName}
+	else
+		echo "[INFO] open the project url:http://"${projectFullName}
+		open "http://"${projectFullName}
+	fi
+}
+
+
+if [ $# -gt 0 ];then
+	openProject  $1
+	exit 0
+fi
 currentDir=$(pwd)
 # 1.first to check this dir whether the git repo
 # git remote -v 
@@ -22,3 +40,4 @@ else
 	echo "[INFO]:open the reporistory url [in your brower]"
 	open ${repoUrl}
 fi
+
