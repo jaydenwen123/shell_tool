@@ -2,6 +2,7 @@
 # current branch
 branch=`git branch |grep "*"|awk '{print $2}'`
 
+# if there is no param,then execute git push opeartion
 if [  $# -eq 0   ];then
 	#read -p "please input the pushed branch,the default branch is master:" -t 30 branch
 	#if [  ${#branch} -eq 0  ];then

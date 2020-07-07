@@ -1,4 +1,84 @@
-# shell_tool
+# 工作中办公效率提升神器汇总
 
-git add ,commit ,push  tools
-open git repo,git group tools
+> **在平常工作中，通常会有很多重复性的工作，而且使用比较频繁，因此本文下面主要进行介绍工作中常用的shell命令，用来提升工作效率**  
+
+## 一、命令说明
+
+1. **当前所有命令都是在mac环境下执行，如果linux或者windows，不敢确保命令100%能正常执行**
+2. **所有命令都是遵循一个规则，首先编写完整的shell命令脚本，然后通过`ln -s xxx.sh xxx`的方式创建一个软连接，便于命令行使用**
+3. **创建软链接的名称遵循缩写来命令，方便记忆**
+
+## 二、如何使用
+
+**1.克隆本项目到本地目录**
+
+``` shell
+git clone https://github.com/jaydenwen123/shell_tool.git
+```
+
+**2.将克隆后的本地目录加入到path环境变量中**
+
+```shell
+a. vim /etc/profile                  // vim 打开/etc/profile
+b. export PATH=$PATH:"${currentDir}" //在/etc/profile中追加这菊花
+c. source /etc/profile               //使得/etc/profile文件生效
+```
+
+**3.然后开心的玩耍**
+
+```shell
+例如：
+1. ool github.com/jaydenwen123/shell_tool  //在浏览器中打开github.com/jaydenwen123/shell_tool
+2. ool https://github.com/jaydenwen123/shell_tool  //在浏览器中打开github.com/jaydenwen123/shell_tool
+3. ool //如果当前目录是个git工程并且绑定到了远程的分支，则会在浏览器端打开该工程
+```
+
+
+## 三、命令使用介绍
+
+
+### 1.git 提交、推送远程命令gp
+**该组命令主要用来完成通常的git add/commit/push等工作，通过命令来减少鼠标和界面操作**
+
+	gp->git_push.sh
+	git_push.sh
+
+#### 使用案例
+``` shell
+	1.gp "feat(git_push.sh):update git add/commit/push shell tool"
+```
+
+	
+### 2.git 查看当前工作区状态命令gs
+	git_status.sh
+	gs->git_status.sh
+	
+### 3.git 初始化本地目录为仓库命令igp
+	igp->init_git_project.sh
+	init_git_project.sh
+	
+### 4.创建git工程命令
+	cgp->create_git_project.sh
+	create_git_project.sh
+
+### 5.打开git 仓库命令oo
+	oo->open_git_project.sh
+	open_git_project.sh
+	
+### 6.打开git 个人主页、组织首页命令og
+
+	og->open_git_group.sh
+	open_git_group.sh
+
+### 7.便捷登录个人云服务器命令mm
+	mm->ssh_cloud_server.sh
+	ssh_cloud_server.sh
+	
+### 8.打开git开源项目命令ool
+	ool->open_other_library.sh
+	open_other_library.sh
+
+### 9.便捷打开rick平台命令oor
+	oor->open_rick.sh
+	open_rick.sh
+
