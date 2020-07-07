@@ -48,12 +48,8 @@ c. source /etc/profile               //使得/etc/profile文件生效
 **1.将当前工程中的所有更改添加通过指定的msg提交，并推送远程**
 
 ``` shell
-gp "feat(git_push.sh):update git add/commit/push shell tool"
+//在gp后面跟提交信息msg即可
 
-```
-**输出信息**
-
-```shell
  ~/shell_tool git:(master) ✗ gp "feat(git_push.sh):update git add/commit/push shell tool"
 [INFO] git status
 On branch master
@@ -93,23 +89,47 @@ To https://github.com/jaydenwen123/shell_tool.git
 **2.将当前工作区的修改，通过指定的msg提交，但不推动到远程仓库**
 
 ```shell
-	//在指定的提交消息后面打个空格，然后随便输入一些信息，则只会commit不会执行push
-	gp "docs:update REAME.md" "1"
+//在指定的提交消息后面打个空格，然后随便输入一些信息，则只会commit不会执行push
+➜  ~/shell_tool git:(master) gp "docs:update REAME.md" "1"
+[INFO] git status
+On branch master
+Changes not staged for commit:
+  (use "git add <file>..." to update what will be committed)
+  (use "git checkout -- <file>..." to discard changes in working directory)
+
+        modified:   README.md
+
+no changes added to commit (use "git add" and/or "git commit -a")
+[INFO] exec git add .
+On branch master
+Changes to be committed:
+  (use "git reset HEAD <file>..." to unstage)
+
+        modified:   README.md
+
+[INFO] exec git commit -m docs:update REAME.md
+[master 7626d45] docs:update REAME.md
+ 1 file changed, 16 insertions(+), 1 deletion(-)
+
 ```
 
 **3.将当前分支的所有提交推送到远程**
 
 ```shell
-	gp //不带任何参数
+//不带任何参数,则将所有的提交推送到远程仓库
+➜  ~/shell_tool git:(master) gp
+
+[INFO] execute action:<git push origin master>
+Enumerating objects: 5, done.
+Counting objects: 100% (5/5), done.
+Delta compression using up to 12 threads
+Compressing objects: 100% (3/3), done.
+Writing objects: 100% (3/3), 544 bytes | 544.00 KiB/s, done.
+Total 3 (delta 2), reused 0 (delta 0)
+remote: Resolving deltas: 100% (2/2), completed with 2 local objects.
+To https://github.com/jaydenwen123/shell_tool.git
+   f7e454d..7626d45  master -> master
 ```
-
-**输出结果**
-
-```shell
-
-```
-
-
 
 
 ### 2.git 查看当前工作区状态命令gs
