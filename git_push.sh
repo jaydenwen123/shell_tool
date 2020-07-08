@@ -20,7 +20,7 @@ git add .
 git status
 echo "[INFO] exec git commit -m $1"
 git commit -m "$1"
-if [ $# -lt 2 ];then
+if [ $# -ge 2 ];then
 	echo "[INFO] git push origin ${branch}"
 	git push origin ${branch}
 fi
