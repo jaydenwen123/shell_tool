@@ -17,6 +17,9 @@ git init .
 if [ $# -ge 2 ];then
 	username=$INNERGITUSERNAME
 	email=$INNERGITEMAIL
+	echo "[INFO] init project with company info."
+else 
+	echo "[INFO] init project with personal info."
 fi
 
 git config user.name $username
