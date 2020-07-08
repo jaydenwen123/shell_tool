@@ -1,6 +1,8 @@
 #!/bin/bash
 #init dir
 dir=$(pwd)
+# update the /etc/profile
+source /etc/profile
 
 #git config username
 username=$GITUSERNAME
@@ -19,3 +21,5 @@ fi
 
 git config user.name $username
 git config user.email $email
+echo "[INFO] git config username with $username"
+echo "[INFO] git config email with $email"

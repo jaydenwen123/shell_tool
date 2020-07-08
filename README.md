@@ -42,6 +42,18 @@ c. source /etc/profile               //使得/etc/profile文件生效
 
 	gp->git_push.sh
 	git_push.sh
+	
+	gp :为通过ln创建的一个软连接
+	gp的用法主要有以下三种:
+	
+	# 用法一、添加、提交本地工作区修改的内容
+	1. gp "feat:update code logic"
+	
+	# 用法二、添加、提交、推送本地工作区修改的内容到远程仓库 gp后带提交
+	2. gp "feat:update code logic" abc
+	
+	# 用法三、将本地仓库的提交推送到远程，gp后不带任何参数
+	3. gp
 
 #### 使用案例
 
@@ -50,7 +62,7 @@ c. source /etc/profile               //使得/etc/profile文件生效
 ``` shell
 //在gp后面跟提交信息msg即可
 
- ~/shell_tool git:(master) ✗ gp "feat(git_push.sh):update git add/commit/push shell tool"
+ ➜  ~/shell_tool git:(master) ✗ gp "feat:update git_push.sh"
 [INFO] git status
 On branch master
 Changes not staged for commit:
@@ -69,24 +81,12 @@ Changes to be committed:
         modified:   README.md
         modified:   git_push.sh
 
-[INFO] exec git commit -m feat(git_push.sh):update git add/commit/push shell tool
-[master 1fc8af9] feat(git_push.sh):update git add/commit/push shell tool
- 2 files changed, 85 insertions(+), 4 deletions(-)
- rewrite README.md (98%)
-[INFO] git push origin master
-Enumerating objects: 7, done.
-Counting objects: 100% (7/7), done.
-Delta compression using up to 12 threads
-Compressing objects: 100% (4/4), done.
-Writing objects: 100% (4/4), 1.66 KiB | 1.67 MiB/s, done.
-Total 4 (delta 2), reused 0 (delta 0)
-remote: Resolving deltas: 100% (2/2), completed with 2 local objects.
-To https://github.com/jaydenwen123/shell_tool.git
-   cb935bb..1fc8af9  master -> master
-	
+[INFO] exec git commit -m feat:update git_push.sh
+[master b39a91c] feat:update git_push.sh
+ 2 files changed, 2 insertions(+), 2 deletions(-)
 ```
 
-**2.将当前工作区的修改，通过指定的msg提交，但不推动到远程仓库**
+**2.将当前工作区的修改，通过指定的msg提交，并推动到远程仓库**
 
 ```shell
 //在指定的提交消息后面打个空格，然后随便输入一些信息，则只会commit不会执行push
